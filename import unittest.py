@@ -1,5 +1,6 @@
 import unittest
 import mysql.connector
+from sistema import add_product
 
 
 def test_add_product():
@@ -8,9 +9,9 @@ def test_add_product():
 
         #   Substituir as strings abaixo pelas utilizadas no banco de dados
         host='localhost', 
-        user='usuario',
-        password='senha',
-        database='banco_de_dados'
+        user='root',
+        password='jbneto9!',
+        database='tdd'
     )
 
     # Criar um cursor para executar as consultas
@@ -29,6 +30,9 @@ def test_add_product():
     assert result[1] == "Celular"
     assert result[2] == 999
 
+    # Consuma todos os resultados antes de fechar o cursor
+    cursor.fetchall()
+    
     # Fechar o cursor e a conexão
     cursor.close()
     conexao.close()
