@@ -1,6 +1,7 @@
 import mysql.connector
 from dataclasses import dataclass
 
+#estabelece uma conexao com o bd
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -9,17 +10,15 @@ mydb = mysql.connector.connect(
 )
 cursor = mydb.cursor()
 
-@dataclass
-class Produto:
-    name: str
-    id: int
-    preco: float
-
-
-def add_product(name, preco):
-    query = "INSERT INTO products (name, preco) VALUES (%s, %s)"
-    values = (name, preco)
-    cursor.execute(query, values)
-    mydb.commit()
-    return ("Produto cadastrado com sucesso")
+#Funcao que adiciona um produto ao bd
+def add_product(name, id, preco):
+    try:
+        query = "INSERT INTO products (name, id, preco) VALUES (%s, %s, %s)"
+        values = (name, id, preco)
+        cursor.execute(query, values)
+        mydb.commit()
+        return ("Produto cadastrado com sucesso")
+    except:
+        return ("Produto não cadastrado")
+    
 
