@@ -1,42 +1,12 @@
 import unittest
-import mysql.connector
-from sistema import add_product
-from sistema import mydb
 
+class TestAdicionarProduto(unittest.TestCase):
 
-def test_add_product():
-    # Conexão com o banco de dados MySQL
-    conexao = mydb
+    def test_adicionar_produto(self):
+        produto = Produto(1, 'arroz', 19.90)
+        adicionar_produto = AdicionarProduto()
+        resposta = adicionar_produto.adicionar_produto(produto)
+        self.assertEqual(resposta, "Adicionado com sucesso")
 
-    # Criar um cursor para executar as consultas
-    cursor = conexao.cursor()
-
-    # Executar a função para adicionar um produto
-    resultado = add_product("Celular", 3, 999) 
-    
-    # Realizar uma consulta para verificar se o produto foi adicionado
-    query = "SELECT * FROM products WHERE id = 3"
-    cursor.execute(query)
-    result = cursor.fetchone() #Obter um linha de cada vez
-
-    # Verificar se o produto foi adicionado corretamente
-    assert result is not None
-    assert result[0] == 3
-    assert result[1] == "Celular"
-    assert result[2] == 999
-
-    # Excluir o produto adicionado
-    query = "DELETE FROM products WHERE id = %s"
-    values = (3,) 
-    cursor.execute(query, values)
-    conexao.commit()
-    
-    # Consuma todos os resultados antes de fechar o cursor
-    cursor.fetchall()
-    
-    # Fechar o cursor e a conexão
-    cursor.close()
-    conexao.close()
-
-# Executar o teste
-test_add_product()
+if __name__ == '__main__':
+    unittest.main()
