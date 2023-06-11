@@ -1,4 +1,6 @@
 import unittest
+from Produto import Produto
+from DeletarProduto import DeletarProduto
 
 class TestDeletarProduto(unittest.TestCase):
 
