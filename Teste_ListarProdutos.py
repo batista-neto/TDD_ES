@@ -1,5 +1,6 @@
 import unittest
 from AdicionarProduto import AdicionarProduto
+from ListarProdutos import read_product
 
 adicionar_produto = AdicionarProduto()
 
