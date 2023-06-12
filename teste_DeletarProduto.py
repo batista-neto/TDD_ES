@@ -1,5 +1,6 @@
 import unittest
-
+from Produto import Produto
+from Sistema import Sistema
 class TestDeletarProduto(unittest.TestCase):
 
     def test_deletar_produto(self):
