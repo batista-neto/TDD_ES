@@ -4,7 +4,7 @@ from Sistema import Sistema
 class TestDeletarProduto(unittest.TestCase):
 
     def test_deletar_produto(self):
-        produto1 = Produto(1, 'arroz', 19.90)
+        produto1 = Produto(id = 1, nome = 'arroz', valor = 19.90)
         sistema = Sistema()
         sistema.adicionar_produto(produto1)
         resposta = sistema.deletar_produto(1)

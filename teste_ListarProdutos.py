@@ -6,9 +6,9 @@ class TestListarTodosProdutos(unittest.TestCase):
 
     def test_listar_produtos (self):
         sistema = Sistema()
-        produto1 = Produto(1, 'arroz', 19.90)
-        produto2 = Produto(2, 'feijao', 6.90)
-        produto3 = Produto(3, "macarrao", 8.99)
+        produto1 = Produto(id = 1, nome  = "arroz", valor = 19.99)
+        produto2 = Produto(id = 2, nome  = "feijao", valor = 6.99)
+        produto3 = Produto(id = 3, nome  = "macarrao", valor = 8.99)
         sistema.adicionar_produto(produto1)
         sistema.adicionar_produto(produto2)
         sistema.adicionar_produto(produto3)
