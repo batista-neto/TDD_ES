@@ -39,3 +39,9 @@ class Sistema:
                 return "Produto atualizado com sucesso"
 
         return "Produto com esse ID não encontrado, tente novamente"
+    
+    def listar_todos_produtos(self):
+        if len(self.produtos) == 0:
+            return "Nenhum produto adicionado a lista"
+        
+        return [produto.__dict__ for produto in self.produtos]
