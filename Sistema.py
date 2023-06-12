@@ -45,3 +45,13 @@ class Sistema:
             return "Nenhum produto adicionado a lista"
         
         return [produto.__dict__ for produto in self.produtos]
+    
+    def consultar_produto(self, id):
+        if id is None:
+            return "ID não inserido, tente novamente"
+        
+        for produto in self.produtos:
+            if produto.id == id:
+                return [produto.__dict__]
+            
+        return "Produto com esse ID não encontrado, tente novamente"
