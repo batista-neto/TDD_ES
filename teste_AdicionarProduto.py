@@ -1,4 +1,6 @@
 import unittest
+from Produto import Produto
+from Sistema import Sistema
 
 class TestAdicionarProduto(unittest.TestCase):
 
