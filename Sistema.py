@@ -24,3 +24,18 @@ class Sistema:
                 return "Produto removido com sucesso"
                 
         return "Produto com esse ID náo encontrado, tente novamente"
+    
+    def atualizar_produto(self, id, novo_nome, novo_valor):
+        if id is None:
+            return "ID do produto não fornecido. Forneça o ID do produto para realizar a atualização."
+        
+        if novo_nome is None:
+            return "Nome não foi inserido, tente novamente"
+        
+        for produto in self.produtos:
+            if produto.id == id:
+                produto.nome = novo_nome
+                produto.valor = novo_valor
+                return "Produto atualizado com sucesso"
+
+        return "Produto com esse ID não encontrado, tente novamente"
