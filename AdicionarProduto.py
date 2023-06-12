@@ -19,14 +19,14 @@ class AdicionarProduto:
     def listar_produtos(self):
         return [produto.__dict__ for produto in self.produtos_adicionados]
 
-#adicionar_produto = AdicionarProduto()    
+adicionar_produto = AdicionarProduto()    
 
-# a = Produto(1, 'arroz', 19.90)
-# produto2 = Produto(2, 'Produto B', 20.99)
+a = Produto(1, 'arroz', 19.90)
+produto2 = Produto(2, 'Produto B', 20.99)
 
-# adicionar_produto.adicionar_produto(a)
-# adicionar_produto.adicionar_produto(produto2)
+adicionar_produto.adicionar_produto(a)
+adicionar_produto.adicionar_produto(produto2)
 
-# c = adicionar_produto.listar_produtos()
-# d = c
-# print(len(c[1]))
+c = adicionar_produto.listar_produtos()
+
+print(c)
